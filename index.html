@@ -22,7 +22,7 @@
     <div data-role="page" id="page">
         <div data-role="header">
             <div class="logo">
-                <img src="icon.png"> <a href="tel:+15099540816">509-954-0816</a>
+                <img src="icon.png" width="30px" height="30px"><span style="font-size: 2em">Mercutio's Pizza&nbsp;| &nbsp;</span><a href="tel:+15099540816">509-954-0816</a>
             </div>
         </div>
 
@@ -107,31 +107,17 @@
                     $('#latitude').text(lat);
                     $('#longitude').text(lon);
                     console.log(lat + " : " + lon);
-                    var locUrl = "<a href='https://maps.google.com/maps/embed?pb=!1m28/"
-                            + lat + "," + lon
-                            + "/3115+W+19th+Ave+Spokane,+WA+99224"
-                            + "'>Get Directions</a>";
-                    $('#locUrl').html(locUrl);
 
-                    var locSrcUrl = "https://maps.google.com/maps/dir/"
-                    + lat + "," + lon
-                    + "/3115+W+19th+Ave+Spokane,+WA+99224";
+                    var map = '<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d10753.582741365435!2d-117.45767230137862!3d47.63787718338516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!1i0!3e6!4m4!2s'+lat+'%2C+'+lon+'0000001!3m2!1d'+lat+'!2d'+lon+'!4m5!1s0x549e180308057e51%3A0x76bfa332ed51387f!2s3115+W+19th+Ave%2C+Spokane%2C+WA+99224!3m2!1d47.637195999999996!2d-117.45862299999999!5e0!3m2!1sen!2sus!4v1426917315376" width="360" height="360" frameborder="0" style="border:0"></iframe>';
 
-                    var map2Src = "https://www.google.com/maps/embed/dir/"+lat+",+"+lon+'/3115+W+19th+Ave,+Spokane,+WA+99224/@47.4825918,-117.4342028,12z/data=!4m11!4m10!1m3!2m2!1d-117!2d47!1m5!1m1!1s0x549e180308057e51:0x76bfa332ed51387f!2m2!1d-117.458623!2d47.637196';
-                    var map2 = '<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d10753.582741365435!2d-117.45767230137862!3d47.63787718338516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!1i0!3e6!4m4!2s'+'47.6351637'+'%2C+'+'-117.4617201'+'0000001!3m2!1d'+'47.6351637'+'!2d'+'-117.4617201'+'!4m5!1s0x549e180308057e51%3A0x76bfa332ed51387f!2s3115+W+19th+Ave%2C+Spokane%2C+WA+99224!3m2!1d47.637195999999996!2d-117.45862299999999!5e0!3m2!1sen!2sus!4v1426917315376" width="360" height="360" frameborder="0" style="border:0"></iframe>';
-                    var map3 = '<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d10753.582741365435!2d-117.45767230137862!3d47.63787718338516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!1i0!3e6!4m4!2s'+lat+'%2C+'+lon+'0000001!3m2!1d'+lat+'!2d'+lon+'!4m5!1s0x549e180308057e51%3A0x76bfa332ed51387f!2s3115+W+19th+Ave%2C+Spokane%2C+WA+99224!3m2!1d47.637195999999996!2d-117.45862299999999!5e0!3m2!1sen!2sus!4v1426917315376" width="360" height="360" frameborder="0" style="border:0"></iframe>';
-
-                    var map = '<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d2688.477670975591!2d-117.46273118734226!3d47.636283776989046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!1i0!3e6!4m4!2s'+lat+'+-'+lon+'!3m2!1d'+lat+'!2d-'+lon+'!4m5!1s0x549e180308057e51%3A0x76bfa332ed51387f!2s3115+W+19th+Ave%2C+Spokane%2C+WA+99224!3m2!1d47.637195999999996!2d-117.45862299999999!5e0!3m2!1sen!2sus!4v1426901233489" width="360" height="360" frameborder="0" style="border:0"></iframe>';
-                    //$('#map').append(map);
-                    //$('#map').append(map2);
-                    $('#map').append(map3);
+                    $('#map').append(map);
 
                 })
             </script>
 
-            Latitude: <span id="latitude"></span><br>
-            Longitude: <span id="longitude"></span><br>
-            <!--Url: <span id="locUrl"></span>-->
+            <!--Latitude: <span id="latitude"></span><br>
+            Longitude: <span id="longitude"></span><br>-->
+
 
             <div id="map"></div>
         </div>
