@@ -22,15 +22,12 @@
     <div data-role="page" id="page">
         <div data-role="header">
             <div class="logo">
-                <img src="#"> <a href="tel:+18005551212">800-555-1212</a>
+                <img src="icon.png"> <a href="tel:+15099540816">509-954-0816</a>
             </div>
         </div>
 
         <div data-role="content">
             <ul data-role="listview">
-                <li>
-                    <a href="#home">Home</a>
-                </li>
 
                 <li>
                     <a href="#menu">Menu</a>
@@ -51,19 +48,6 @@
         </div>
     </div>
 
-    <div data-add-back-btn="true" data-role="page" id="home">
-        <div data-add-back-btn="true" data-role="header">
-            <h1>Mercutio's Pizza</h1>
-        </div>
-
-        <div data-role="content">
-            <p>some content here</p>
-        </div>
-
-        <div data-role="footer">
-            <h4>Mercutio's Pizza &copy; 2015</h4>
-        </div>
-    </div>
 
     <div data-role="page" id="menu">
         <div data-add-back-btn="true" data-role="header">
@@ -133,14 +117,21 @@
                     + lat + "," + lon
                     + "/3115+W+19th+Ave+Spokane,+WA+99224";
 
+                    var map2Src = "https://www.google.com/maps/embed/dir/"+lat+",+"+lon+'/3115+W+19th+Ave,+Spokane,+WA+99224/@47.4825918,-117.4342028,12z/data=!4m11!4m10!1m3!2m2!1d-117!2d47!1m5!1m1!1s0x549e180308057e51:0x76bfa332ed51387f!2m2!1d-117.458623!2d47.637196';
+                    var map2 = '<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d10753.582741365435!2d-117.45767230137862!3d47.63787718338516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!1i0!3e6!4m4!2s'+'47.6351637'+'%2C+'+'-117.4617201'+'0000001!3m2!1d'+'47.6351637'+'!2d'+'-117.4617201'+'!4m5!1s0x549e180308057e51%3A0x76bfa332ed51387f!2s3115+W+19th+Ave%2C+Spokane%2C+WA+99224!3m2!1d47.637195999999996!2d-117.45862299999999!5e0!3m2!1sen!2sus!4v1426917315376" width="360" height="360" frameborder="0" style="border:0"></iframe>';
+                    var map3 = '<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d10753.582741365435!2d-117.45767230137862!3d47.63787718338516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!1i0!3e6!4m4!2s'+lat+'%2C+'+lon+'0000001!3m2!1d'+lat+'!2d'+lon+'!4m5!1s0x549e180308057e51%3A0x76bfa332ed51387f!2s3115+W+19th+Ave%2C+Spokane%2C+WA+99224!3m2!1d47.637195999999996!2d-117.45862299999999!5e0!3m2!1sen!2sus!4v1426917315376" width="360" height="360" frameborder="0" style="border:0"></iframe>';
+
                     var map = '<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d2688.477670975591!2d-117.46273118734226!3d47.636283776989046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!1i0!3e6!4m4!2s'+lat+'+-'+lon+'!3m2!1d'+lat+'!2d-'+lon+'!4m5!1s0x549e180308057e51%3A0x76bfa332ed51387f!2s3115+W+19th+Ave%2C+Spokane%2C+WA+99224!3m2!1d47.637195999999996!2d-117.45862299999999!5e0!3m2!1sen!2sus!4v1426901233489" width="360" height="360" frameborder="0" style="border:0"></iframe>';
-                    $('#map').append(map);
+                    //$('#map').append(map);
+                    //$('#map').append(map2);
+                    $('#map').append(map3);
+
                 })
             </script>
-            <p>Display Map Here!</p>
+
             Latitude: <span id="latitude"></span><br>
             Longitude: <span id="longitude"></span><br>
-            Url: <span id="locUrl"></span>
+            <!--Url: <span id="locUrl"></span>-->
 
             <div id="map"></div>
         </div>
@@ -212,7 +203,7 @@
                 var name = cart[item].name;
                 var qty = cart[item].qty;
                 var price = cart[item].price;
-                buyUrl += "&prodID[]=" + item + "&qty[]=" + qty;
+                buyUrl += "&prodID[]=" + item + "&qty[]=" + qty + "&price[]=" + price;
             }
             $.getJSON( 'buy.php?' + buyUrl, function(data){
                 $('#cartDiv').append(data);

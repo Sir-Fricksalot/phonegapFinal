@@ -8,6 +8,7 @@
 
 //print_r( $_GET );
 
+$prices = $_GET['price'];
 $qtys = $_GET['qty'];
 $prodIDs = $_GET['prodID'];
 
@@ -15,8 +16,9 @@ $prodIDs = $_GET['prodID'];
 //print_r( $prodIDs );
 
 //process order
-
+$prodIDprices = array_values($prodIDs);
 $prodIDs = array_values($prodIDs);
+
 $qtys = array_values($qtys);
 
     $form =
@@ -24,9 +26,10 @@ $qtys = array_values($qtys);
         Name: <input type='text' name='name' /> <br>
         Address: <input type='address' name='address' /><br>";
 
-    for ($i = 0; $i <= count($prodIDs); $i++) {
-        $form .= "<input type='hidden' name={$prodIDs[$i]} value={$qtys[$i]} />";
-    }
+for ($i = 0; $i <= count($prodIDs); $i++) {
+    $form .= "<input type='hidden' name={$prodIDs[$i]} value={$qtys[$i]} />";
+}
+
     $form .= "<input type='hidden' name={$_GET['prodID']} value={$prodIDs} />";
     $form .= "<input type='hidden' name='prodID' value='GOODBYE' />";
 
