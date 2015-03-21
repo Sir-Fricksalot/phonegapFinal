@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mercutio's Pizza</title>
+    
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    
+    <!-- Include jQuery Mobile stylesheets -->
+    <link href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel=
+    "stylesheet">
+    
+    <!-- Include the jQuery library -->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    
+    <!-- Include the jQuery Mobile library -->
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+    <div data-role="page" id="page">
+        <div data-role="header">
+            <div class="logo">
+                <img src="#"> <a href="tel:+18005551212">800-555-1212</a>
+            </div>
+        </div>
+
+        <div data-role="content">
+            <ul data-role="listview">
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#menu">Menu</a>
+                </li>
+
+                <li>
+                    <a href="#location">Location</a>
+                </li>
+
+                <li>
+                    <a href="#about">About Us</a>
+                </li>
+            </ul>
+        </div>
+
+        <div data-role="footer">
+            <h4>Mercutio's Pizza &copy; 2015</h4>
+        </div>
+    </div>
+
+    <div data-add-back-btn="true" data-role="page" id="home">
+        <div data-add-back-btn="true" data-role="header">
+            <h1>Mercutio's Pizza</h1>
+        </div>
+
+        <div data-role="content">
+            <p>some content here</p>
+        </div>
+
+        <div data-role="footer">
+            <h4>Mercutio's Pizza &copy; 2015</h4>
+        </div>
+    </div>
+
+    <div data-role="page" id="menu">
+        <div data-add-back-btn="true" data-role="header">
+            <h1>Menu</h1>
+        </div>
+
+        <div data-role="content">
+            <div data-product="pizza_1">
+                <span data-name="Margarita">Classic Margarita</span>
+                <span data-price="14">$14</span>
+                <span class="description">The classic mozzarella, tomato and basil combination that made pizza world renowned.</span>
+            </div>
+            <div data-product="pizza_2">
+                <span data-name="Mercutio">Mercutio</span>
+                <span data-price="17">$17</span>
+                <span class="description">Our founder's favorite! Italian sausage, spanish olives, mushrooms and fresh onions with our rich pesto sauce.</span>
+            </div>
+            <div data-product="pizza_3">
+                <span data-name="Vegetarian">Vegetarian</span>
+                <span data-price="15">$15</span>
+                <span class="description">Our most boring pizza by a mile is still tasty!  Onions, green peppers and mushrooms fried in bacon grease and piled on!</span>
+            </div>
+            <div data-product="pizza_4">
+                <span data-name="Voila">Voila!</span>
+                <span data-price='19'>$19</span>
+                <span class="description">Bacon, italian sausage, grilled chicken, and garlic!  This is one pie you have gotta try!</span>
+            </div>
+        </div>
+        <div id="cartDiv">
+
+        </div>
+        <div>
+            <p><button id="buyButton">Purchase Order</button></p>
+        </div>
+        <div>
+            <button id="saveOrder">Save as My Favorite!</button>
+            <button id="loadOrder">Load My Favorite!</button>
+        </div>
+
+        <div data-role="footer">
+            <h4>Mercutio's Pizza &copy; 2015</h4>
+        </div>
+    </div>
+
+
+
+    <div data-role="page" id="location">
+        <div data-add-back-btn="true" data-role="header">
+            <h1>Locations</h1>
+        </div>
+
+        <div data-role="content">
+            <script type="text/javascript">
+                navigator.geolocation.getCurrentPosition(function(pos){
+                    var lat = pos.coords.latitude;
+                    var lon = pos.coords.longitude;
+                    $('#latitude').text(lat);
+                    $('#longitude').text(lon);
+                    console.log(lat + " : " + lon);
+                    var locUrl = "<a href='https://maps.google.com/maps/embed?pb=!1m28/"
+                            + lat + "," + lon
+                            + "/3115+W+19th+Ave+Spokane,+WA+99224"
+                            + "'>Get Directions</a>";
+                    $('#locUrl').html(locUrl);
+
+                    var locSrcUrl = "https://maps.google.com/maps/dir/"
+                    + lat + "," + lon
+                    + "/3115+W+19th+Ave+Spokane,+WA+99224";
+
+                    var map = '<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d2688.477670975591!2d-117.46273118734226!3d47.636283776989046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!1i0!3e6!4m4!2s'+lat+'+-'+lon+'!3m2!1d'+lat+'!2d-'+lon+'!4m5!1s0x549e180308057e51%3A0x76bfa332ed51387f!2s3115+W+19th+Ave%2C+Spokane%2C+WA+99224!3m2!1d47.637195999999996!2d-117.45862299999999!5e0!3m2!1sen!2sus!4v1426901233489" width="360" height="360" frameborder="0" style="border:0"></iframe>';
+                    $('#map').append(map);
+                })
+            </script>
+            <p>Display Map Here!</p>
+            Latitude: <span id="latitude"></span><br>
+            Longitude: <span id="longitude"></span><br>
+            Url: <span id="locUrl"></span>
+
+            <div id="map"></div>
+        </div>
+
+        <div data-role="footer">
+            <h4>Mercutio's Pizza&copy; 2015</h4>
+        </div>
+    </div>
+
+    <div data-role="page" id="about">
+        <div data-add-back-btn="true" data-role="header">
+            <h1>About</h1>
+        </div>
+
+        <div data-role="content">
+            <p>
+                Around here, we use traditional methods to craft gourmet pizza like you've never tasted.  We use only the freshest veggies, choice Grade-A meats, master-cultured cheeses and hand-made dough.  We think you'll agree, our pizza is not just your typical pie!  Come on down to one of our 3 stunning locations, or give us a call to experience Italian cooking in a whole new way!
+            </p>
+        </div>
+
+        <div data-role="footer">
+            <h4>Mercutio's Pizza &copy; 2015</h4>
+        </div>
+    </div>
+<script type="text/javascript">
+    var cart = [];
+
+    function displayCart(){
+        var cartDiv = $('#cartDiv');
+        var total = 0;
+        cartDiv.html("");
+        for(var item in cart){
+            var name = cart[item].name;
+            var qty = cart[item].qty;
+            var price = cart[item].price;
+            var subtotal = price*qty;
+            cartDiv.append('<p>' + qty + " " + name + ": $" + subtotal.toFixed(2) + '</p>');
+            total += subtotal;
+        }
+        cartDiv.append('<p>Total: $' + total.toFixed(2) + '</p>')
+    }
+
+    $(document).ready(function(){
+        //add buy button to each product
+        $('div[data-product]').each(function() {
+            $(this).append('<button class="cartButton">Add to Cart</button>')
+        })
+        $('.cartButton').on("click", function(event){
+            var prodID = $(this).parent().data("product");
+            console.log( prodID );
+            console.log($(this).siblings("span").data("name"));
+            console.log($(this).siblings("span").next().data("price"));
+            var cartItem = new Object();
+            if( cart[prodID] ){
+                cart[prodID].qty += 1;
+            } else {
+                cart[prodID] = cartItem;
+                cart[prodID].qty = 1;
+                cart[prodID].ID = prodID;
+                cart[prodID].name = $(this).siblings("span").data("name");
+                cart[prodID].price = $(this).siblings("span").next().data("price");
+
+            }
+            displayCart();
+        })
+        $('#buyButton').on('click', function(event){
+            var buyUrl = "";
+            for(var item in cart){
+                var name = cart[item].name;
+                var qty = cart[item].qty;
+                var price = cart[item].price;
+                buyUrl += "&prodID[]=" + item + "&qty[]=" + qty;
+            }
+            $.getJSON( 'buy.php?' + buyUrl, function(data){
+                $('#cartDiv').append(data);
+
+            })
+            console.log('http://217-11.taylorsmiths.com/buy.php?' + buyUrl);
+            $('#buyButton').hide();
+        })
+        $('#saveOrder').on("click", function(event){
+            //localStorage['cart'] = ;
+            var cartString = "[";
+            for(var item in cart){
+                cartString += JSON.stringify( cart[item] ) + ",";
+            }
+            cartString = cartString.slice(0, -1);
+            cartString += "]";
+            localStorage['cart'] = cartString;
+            console.log( cartString );
+
+        })
+        $('#loadOrder').on("click",function(event){
+            var favorite = JSON.parse( localStorage['cart'] );
+
+            console.log(favorite);
+            for (item in favorite){
+                prodID = favorite[item].ID;
+                cart[prodID] = favorite[item];
+            }
+            console.log(cart);
+            displayCart();
+        })
+
+    })
+</script>
+</body>
+<!--<div data-role="page" id="order">
+    <div data-add-back-btn="true" data-role="header">
+        <h1>Order</h1>
+    </div>
+
+    <div data-role="content">
+        <p>some content here</p>
+    </div>
+
+    <div data-role="footer">
+        <h4>Some pizza place &copy; 2015</h4>
+    </div>
+</div>-->
+</html>
