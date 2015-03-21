@@ -21,7 +21,7 @@ $total = $sub1+$sub2+$sub3+$sub4;
 
 print_r("Your order has been sent and is being processed!");
 
-mail("righteousquesty@gmail.com",
+mail("217cis@gmail.com",
     "ORDER IN!",
     $_POST['name'].
     "\n".$_POST['address'].
